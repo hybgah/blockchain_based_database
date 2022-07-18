@@ -1,5 +1,5 @@
 # blockchain-database
-This project shows simply how to implement a blockchain as a database.<br>
+This project shows simply how to use a blockchain as a database.<br>
 
 
 blockchain.py : Blockchain which can store a data.<br>
