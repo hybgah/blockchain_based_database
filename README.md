@@ -1,4 +1,4 @@
-# blockchain-database
+# Blockchain-database
 This project shows simply how to use a blockchain as a database.<br>
 
 
