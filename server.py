@@ -13,7 +13,7 @@ app = Flask(__name__)
 # To identify nodes
 node_identifier = str(uuid4()).replace('-', '')
 
-app.config['UPLOAD_FOLDER'] = 'C:\\Users\\junha\\Documents\\Big Data_Presentation\\demo'
+app.config['UPLOAD_FOLDER'] = 'path/to/the/file'
 
 
 @app.route('/chain', methods=['GET'])
