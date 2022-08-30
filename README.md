@@ -33,7 +33,7 @@ The hash of the current block is made by the hash of the previous block and the 
        # Genesis block
        self.new_block(previous_hash=1, proof=100)
  ```
- After the pow function returns the proof value adding a new block is possible. This function hashes the current value and the hash value of the last block. It repeats hashing the value with the proof with adding 1 to the proof, while the valid_proof function returns True. The valid_ture function returns True if the hash from the pow function starts with hence time zeros. It will be easier to understand if you see the code.
+ After the pow function returns the proof value adding a new block is possible. This function hashes the current value and the hash value of the last block. It repeats hashing the value with the proof with adding 1 to the proof, while the valid_proof function returns True. The valid_ture function returns True, if the hash from the pow function starts with hence time zeros. It will be easier to understand with a code.
 ```Python
 def pow(self):
   proof = 0
@@ -62,5 +62,10 @@ block = {
             'previous_hash': previous_hash or self.chain[-1]['hash']
         }
  ```
-  
- 
+### server.py
+You can make and update your chain and check the data in it.
+
+## Future Work
+ <li> Synchronize it with an real server like AWS.
+ <li> Make it possible to access the chain with an individual ID and PW.
+ <li> Implement a function that outputs the data in a blockchain database.
