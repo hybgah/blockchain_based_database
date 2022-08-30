@@ -22,3 +22,45 @@ The structure is more complicated, because I’ll focus on the data, which is in
 <img src="https://user-images.githubusercontent.com/62208537/187311744-801bc3b2-6641-4aba-9f0c-be5bb7486d46.png" width="800" height="400"/><br>
 The hash of the current block is made by the hash of the previous block and the data of the current block. All the previous hashes effects to the next hashes. So, if a data in a block is changed the hashes of the next blocks will be also changed. Therefore, we can verify through the hashes if the data in the block is manipulated or not. 
 <img src="https://user-images.githubusercontent.com/62208537/187312319-3b225071-e4ef-4fe0-a804-7b6e1128a059.png" width="800" height="400"/><br>
+
+### blockchain.py
+ I made this blockchain with an object oriented programming. A Blockchain object consists of some attibutes and methods.
+ ```Python
+ class Blockchain(object):
+   def __init__(self):
+       self.chain = []
+       self.current_data = []
+       # Genesis block
+       self.new_block(previous_hash=1, proof=100)
+ ```
+ After the pow function returns the proof value adding a new block is possible. This function hashes the current value and the hash value of the last block. It repeats hashing the value with the proof with adding 1 to the proof, while the valid_proof function returns True. The valid_ture function returns True if the hash from the pow function starts with hence time zeros. It will be easier to understand if you see the code.
+```Python
+def pow(self):
+  proof = 0
+  data_pre_hash = self.hash(self.current_data, self.last_block['hash'])
+  # Repeat while finding correct value
+   while self.valid_proof(data_pre_hash, str(proof)) is False:
+      proof += 1
+
+  return proof
+
+@staticmethod
+def valid_proof(data_pre_hash, proof):
+    guess = str(data_pre_hash + proof).encode()
+    guess_hash = hashlib.sha256(guess).hexdigest()
+    # If first four characters are 0000, return True
+    return guess_hash[:4] == "0000"  # nonce = 4
+```
+ Then the new_block function makes an dictionary like bellow and add it to the chain.
+ ```Python
+block = {
+            'index': len(self.chain)+1,
+            'timestamp': time(),
+            'data': self.current_data,
+            'proof': proof,
+            'hash' : self.hash(self.current_data,previous_hash or self.chain[-1]['hash']),
+            'previous_hash': previous_hash or self.chain[-1]['hash']
+        }
+ ```
+  
+ 
