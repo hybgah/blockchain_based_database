@@ -63,9 +63,9 @@ block = {
         }
  ```
 ### server.py
-You can make and update your chain and check the data in it.
+It's a server that makes it possible to make, update your chain and check the data in it.
 
 ## Future Work
- <li> Synchronize it with an real server like AWS.
+ <li> Synchronize it with a real server like AWS.
  <li> Make it possible to access the chain with an individual ID and PW.
- <li> Implement a function that outputs the data in a blockchain database.
+ <li> Implement a function that outputs data in a blockchain database.
